@@ -1,10 +1,12 @@
-package com.knight.mvpdemo;
+package com.knight.mvpdemo.base;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.knight.mvpdemo.R;
 
 /**
  * @author created by luguian
@@ -13,7 +15,7 @@ import android.widget.Toast;
  * @descript:
  */
 
-public abstract class BaseActivity extends Activity implements BaseView{
+public abstract class BaseActivity extends Activity implements BaseView {
 
 
     private ProgressDialog mProgressDialog;

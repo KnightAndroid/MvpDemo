@@ -1,4 +1,4 @@
-package com.knight.mvpdemo;
+package com.knight.mvpdemo.base;
 
 /**
  * @author created by luguian

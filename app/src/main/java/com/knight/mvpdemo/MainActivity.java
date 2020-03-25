@@ -14,11 +14,12 @@ public class MainActivity extends AppCompatActivity implements MvpView {
     ProgressDialog mProgressDialog;
     TextView text;
     MvpPresenter mMvpPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        text = (TextView)findViewById(R.id.text);
+        text = (TextView) findViewById(R.id.text);
 
         // 初始化进度条
         mProgressDialog = new ProgressDialog(this);
@@ -34,59 +35,61 @@ public class MainActivity extends AppCompatActivity implements MvpView {
 
     /**
      * Button 点击时间调用方法
+     *
      * @param view
      */
-    public void getData(View view){
+    public void getData(View view) {
         mMvpPresenter.getData("normal");
     }
 
 
-
     // button 点击事件调用方法
-    public void getDataForFailure(View view){
-         mMvpPresenter.getData("failure");
+    public void getDataForFailure(View view) {
+        mMvpPresenter.getData("failure");
     }
 
 
     // button 点击事件调用方法
-    public void getDataForError(View view){
-         mMvpPresenter.getData("error");
+    public void getDataForError(View view) {
+        mMvpPresenter.getData("error");
     }
 
     @Override
     public void showLoading() {
-        if(!mProgressDialog.isShowing()){
+        if (!mProgressDialog.isShowing()) {
             mProgressDialog.show();
         }
     }
 
     @Override
     public void hideLoading() {
-         if(mProgressDialog.isShowing()){
-             mProgressDialog.dismiss();
-         }
+        if (mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
     }
+
+
 
     @Override
     public void showData(String data) {
-          text.setText(data);
+        text.setText(data);
     }
 
     @Override
     public void showFailureMessage(String msg) {
-        Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         text.setText(msg);
     }
 
     @Override
     public void showErrorMessage() {
-        Toast.makeText(this,"网络请求数据出现异常",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "网络请求数据出现异常", Toast.LENGTH_SHORT).show();
         text.setText("网络请求数据出现异常");
     }
 
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
         //断开View引用
         mMvpPresenter.detachView();

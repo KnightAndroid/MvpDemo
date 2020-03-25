@@ -11,7 +11,7 @@ import android.os.Handler;
 
 public class MvpModel {
 
-    public static void getNetData(final String param,final MvpCallback<String> callback){
+    public static void getNetData(final String param,final MvpCallback callback){
 
         //利用postDelayed方法模拟网络请求数据的耗时操作
         new Handler().postDelayed(new Runnable() {

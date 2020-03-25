@@ -1,4 +1,4 @@
-package com.knight.mvpdemo;
+package com.knight.mvpdemo.base;
 
 import android.content.Context;
 

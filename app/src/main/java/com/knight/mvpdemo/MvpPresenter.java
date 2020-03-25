@@ -7,7 +7,7 @@ package com.knight.mvpdemo;
  * @descript:逻辑业务处理类
  */
 
-public class MvpPresenter extends BasePresenter<MvpView>{
+public class MvpPresenter  {
 
 
 
@@ -53,7 +53,7 @@ public class MvpPresenter extends BasePresenter<MvpView>{
        //显示正在加载进度条
        mView.showLoading();
        //调用Model请求数据
-       MvpModel.getNetData(params, new MvpCallback()<String> {
+       MvpModel.getNetData(params, new MvpCallback() {
            @Override
            public void onSuccess(String data) {
                //调用view接口显示数据
