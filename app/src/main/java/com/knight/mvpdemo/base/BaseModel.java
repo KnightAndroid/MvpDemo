@@ -1,6 +1,6 @@
 package com.knight.mvpdemo.base;
 
-import com.knight.mvpdemo.CallBack;
+import com.knight.mvpdemo.demo2.CallBack;
 
 import java.util.Map;
 
