@@ -2,6 +2,7 @@ package com.knight.mvpdemo.demo2;
 
 import android.os.Handler;
 
+import com.knight.mvpdemo.base.BaseCallback;
 import com.knight.mvpdemo.base.BaseModel;
 
 /**
@@ -13,7 +14,7 @@ import com.knight.mvpdemo.base.BaseModel;
 
 public class UserDataModel extends BaseModel<String> {
     @Override
-    public void execute(final CallBack<String> callback) {
+    public void execute(final BaseCallback<String> callback) {
         //模拟网络请求耗时操作
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -34,4 +35,12 @@ public class UserDataModel extends BaseModel<String> {
             }
         },2000);
     }
+
+    @Override
+    public UserDataModel params(String... args){
+        super.params(args);
+        return this;
+    }
+
+
 }

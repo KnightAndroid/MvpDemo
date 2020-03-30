@@ -1,11 +1,14 @@
 package com.knight.mvpdemo.demo2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.knight.mvpdemo.R;
 import com.knight.mvpdemo.base.BaseActivity;
+import com.knight.mvpdemo.base.BasePresenter;
+import com.knight.mvpdemo.test.TestActivity;
 
 /**
  * @author created by luguian
@@ -22,10 +25,16 @@ public class MainActivity1 extends BaseActivity implements MvpView1{
     MvpPresenter1 mMvpPresenter1;
 
 
+    @Override
+    public BasePresenter getPresenter() {
+       return mMvpPresenter1;
+    }
 
-
-
-
+    @Override
+    public void initPresenter() {
+        //初始化Presenter
+        mMvpPresenter1 = new MvpPresenter1();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -34,10 +43,8 @@ public class MainActivity1 extends BaseActivity implements MvpView1{
 
         text = findViewById(R.id.text);
 
-        //初始化Presenter
-        mMvpPresenter1 = new MvpPresenter1();
         //绑定view引用
-        mMvpPresenter1.attachView(this);
+        //mMvpPresenter1.attachView(this);
     }
 
     @Override
@@ -48,8 +55,6 @@ public class MainActivity1 extends BaseActivity implements MvpView1{
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        //断开view引用
-        mMvpPresenter1.detachView();
     }
 
 
@@ -78,6 +83,15 @@ public class MainActivity1 extends BaseActivity implements MvpView1{
     // button 点击事件调用方法
     public void getDataForError(View view){
         mMvpPresenter1.getData("error");
+    }
+
+
+
+    //跳转第二个界面
+    public void test(View view){
+        //finish();
+        startActivity(new Intent(this, TestActivity.class));
+
     }
 
 

@@ -1,7 +1,5 @@
 package com.knight.mvpdemo.demo2;
 
-import com.knight.mvpdemo.base.BaseModel;
-
 /**
  * @author created by luguian
  * @organize 车童网
@@ -11,23 +9,19 @@ import com.knight.mvpdemo.base.BaseModel;
 
 public class DataModel {
 
-
-
-
-    public static BaseModel request(Class clazz){
+    public static <T> T request(Class<T> clazz){
         //声明一个空的BaseModel
-        BaseModel model = null;
-
-
+        T model = null;
         try {
-            model = (BaseModel)clazz.newInstance();
+            model = clazz.newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-
         return model;
+
+
 
     }
 }

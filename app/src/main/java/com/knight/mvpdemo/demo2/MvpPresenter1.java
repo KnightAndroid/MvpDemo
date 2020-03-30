@@ -11,7 +11,6 @@ import com.knight.mvpdemo.base.BasePresenter;
 
 public class MvpPresenter1 extends BasePresenter<MvpView1> {
 
-
     /**
      *
      * 获取网络数据
@@ -23,15 +22,13 @@ public class MvpPresenter1 extends BasePresenter<MvpView1> {
           return;
       }
 
-      //显示正在加载进度条
-      getView().showLoading();
+       //显示正在加载进度条
+       getView().showLoading();
 
-      DataModel
-              .request(UserDataModel.class)
-              //添加请求参数,没有则不添加
-              .params(params)
-              //注册监听回调
-              .execute(new CallBack<String>() {
+
+       DataModel.request(UserDataModel.class)
+       .params(params)
+       .execute(new CallBack() {//注册监听回调
                   @Override
                   public void onSuccess(String data) {
                       //调用view接口显示数据

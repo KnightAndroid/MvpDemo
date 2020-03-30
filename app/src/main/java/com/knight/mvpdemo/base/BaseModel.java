@@ -1,7 +1,5 @@
 package com.knight.mvpdemo.base;
 
-import com.knight.mvpdemo.demo2.CallBack;
-
 import java.util.Map;
 
 /**
@@ -34,7 +32,7 @@ public abstract class BaseModel<T> {
      * 添加Callback并执行数据请求
      * @param callback
      */
-   public abstract void execute(CallBack<T> callback);
+   public abstract void execute(BaseCallback<T> callback);
 
 
     /**
@@ -43,13 +41,14 @@ public abstract class BaseModel<T> {
      * @param url
      * @param callback
      */
-    protected void requestGetAPI(String url,CallBack<T> callback){
+    protected void requestGetAPI(String url,BaseCallback<T> callback){
          //这里写具体的网络请求
+
     }
 
 
 
-    protected void requestPostAPI(String url, Map params,CallBack<T> callback){
+    protected void requestPostAPI(String url, Map params,BaseCallback<T> callback){
          //这里写具体的网络请求
     }
 
